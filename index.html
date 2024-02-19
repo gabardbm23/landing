@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandmanic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<style>
+    :root {
+        --e-global-color-primary: #1B5861;
+/*        --e-global-color-secondary: #CECEC7;*/
+        --e-global-color-secondary: #FEFEFE;
+        --e-global-color-text: #27292c;
+        --e-global-color-accent: #E04B28;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body,
+    h1,
+    h2, h3,
+    p,
+    span,a {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin: 0; padding: 0;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    h4 {
+        font-size: 1.6rem;
+    }
+    p, li {
+        font-size: 1.6rem;
+    }
+    button {
+        font-size: 1.3rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    input , select {
+        background: #f1f1f1;
+        border: none;
+        padding: 1rem;
+        border-radius: 3px;
+    }
+
+    button  {
+        border: none;
+        padding: 1rem;
+        border-radius: 5rem;
+        width: fit-content;
+        font-weight: bolder;
+    }
+
+    hr {
+        width: 66%;
+    }
+
+
+
+    a {
+        color: white;
+        font-size: 1.25rem;
+        text-decoration: none;
+
+    }
+
+
+
+    nav a:hover {
+        color: var(--e-global-color-accent);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .flex {
+        display: flex;
+    }
+    .wrap {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .flex-column {
+        display: flex;
+        flex-flow: column
+    }
+    .flex-centrado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .blur {
+        background: rgb(0 0 0 / 33%);
+        backdrop-filter: blur(4px);
+        justify-content: center;
+        width: -webkit-fill-available;
+    }
+    
+    .cover-img {
+        background-size: cover;
+    }
+
+    .texto-blanco {
+        color: white
+    }
+
+    .button-1 {
+        color: white;
+        background: var(--e-global-color-primary);
+
+    }
+    .button-2 {
+        border: 3px solid white;
+        color: white;
+        background: transparent;
+    }
+
+
+
+    .margin-auto {
+        margin: auto;
+    }
+    .medium-width {
+        width: 80%
+    }
+    .small-gap {
+        gap: 1vw
+    }
+    .medium-gap {
+        gap: 2.5vw
+    }
+    .large-gap {
+        gap: 3.5vw
+    }
+    .small-padding {
+        padding: 1rem;
+    }
+    .medium-padding {
+        padding: 2.5vw
+    }
+    .large-padding {
+        padding: 7vw;
+    }
+
+    .colored-background {
+        background: rgb(26 88 97 / 14%);
+    }
+
+    .contenedor-forms {
+        background: white;
+        padding: 2rem;
+        border-radius: 5px;
+        height: fit-content;
+        max-width: 30rem;
+        margin: auto;
+    }
+
+    .listado-bonito {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .item-bonito {
+        width: 20vw;
+        min-width: 10rem;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 1.5rem;
+
+    }
+
+    .item-bonito img {
+               box-sizing: content-box;
+        width: 5rem;
+        padding: 1.5rem;
+        filter: invert(30%) sepia(7%) saturate(3476%) hue-rotate(140deg) brightness(93%) contrast(96%);
+    }
+
+    .item-bonito p {
+        text-align: center;
+    }
+
+    .item-bonito div {
+        border-radius: 50%;
+    }
+
+    .porcentajes {
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+    }
+
+    .porcentaje span {
+        color: var(--e-global-color-accent);
+        font-weight: bold;
+        font-size: 5rem;
+    }
+
+    .porcentaje p {
+        padding-left: 3rem;
+        width: 20rem
+    }
+
+    .large-section {
+        min-height: 100vh;
+    }
+
+    .medium-section {
+        min-height: 75vh;
+        box-sizing: border-box
+    }
+
+    .small-section {
+        min-height: 50vh;
+        box-sizing: border-box
+    }
+
+    /*mobile*/
+    @media (max-width: 800px) {
+        nav div>span:not(:last-child)  {
+            display: none;
+        }
+    }
+
+    /*tablet & mobile*/
+    @media (max-width: 1300px) {
+        .marcas img {
+            width: 10rem;
+            height: fit-content;
+            margin: auto;
+            margin-left: 5rem;
+        }
+        .marcas {
+            display: flex;
+            width: -webkit-fill-available;
+            overflow: scroll;
+        }
+
+        nav {
+            padding: 0 1rem;
+            background: var(--e-global-color-primary);
+            width: -webkit-fill-available;
+            flex-wrap: wrap; overflow: hidden;
+        }
+
+
+        .medium-width {
+            width: 100%;
+        }
+
+        .item-bonito p {
+            font-size: 1.3rem;
+        }
+
+        .grid-1fr-1fr {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        hr {
+            display: none
+        }
+    }
+
+    @media (max-width: 1300px) {
+        .grid-1fr-0fr {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+    /*tablet & desktop*/
+    @media (min-width: 801px) {
+
+        .grid-1fr-0fr {
+            display: grid;
+            grid-template-columns: 1fr 33vw;
+        }
+        nav div>span {
+            display: block;
+        }
+    }
+
+
+    /*desktop*/
+    @media (min-width:1301px) {
+        nav {
+            padding: 0 1rem;
+            position: absolute;
+            z-index: 1;
+            width: -webkit-fill-available;
+            flex-wrap: wrap; overflow: hidden;
+        }
+        .marcas img {
+            width: 9rem;
+            height: fit-content;
+            margin: auto;
+            box-sizing: content-box;
+        }
+        .marcas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            width: 50%;
+        }
+        .item-bonito p {
+            width: 66%
+        }
+        .grid-1fr-1fr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+</style>
+
+<body>
+    <nav id="nav" class="flex" style="justify-content: space-between; padding: 1rem">
+        <div style="display: flex; gap: 1rem;     align-items: center;">
+            <img width="80" src="img/Logo BM.svg" alt="Logo Brandmanic">
+            <div style="line-height: 20px; font-weight: bolder; font-size: x-large; color: white">
+                Brand<br>Manic
+            </div>
+        </div>
+        <div style="display: flex; gap: 1.5rem;    align-items: center;">
+            <span><a href="#" >Marketing de influencers</a></span>
+            <span><a href="#" >Servicios</a></span>
+            <span><a href="#" >Contacta</a></span>
+            <span><a href="#" >Blog</a></span>
+            <span><a href="#" ><img src="img/Corazon.svg" width="50px" alt="redes"></a></span>
+        </div>
+    </nav>
+    <main>
+        <section class="cover-img flex large-section" style="background-image: url(img/banner-bg-small.gif) , url(img/banner-bg.webp);">
+            <div class="blur flex grid-1fr-1fr large-padding large-gap" style="align-items: center;">
+                <div class="texto-blanco margin-auto flex-column large-gap">
+
+                    <div style="max-width: 45rem">
+                        <h2>Aumenta tus ventas con Influencer Marketing, sin coste.</h2>
+                        <p>Genera ventas explotando las comunidades digitales con nuestra plataforma inteligente.</p>
+                        <ul>
+                            <li>Servicio <b>100% subencionado</b></li>
+                            <li>Subención desde 20.000€</li>
+                            <li>Dirigida a Hoteles y Restaurantes</li>
+                            <li>Fecha límite de presentación 30/3</li>
+                        </ul>
+                        <button class="button-2"><a href="#informacion">Saber más</a></button>
+                    </div>
+                </div>
+                <div class="flex-centrado contenedor-forms " >
+                    <form action="#" method="post" class="banner__form--form ">
+                        <h3>Solicita una reunión para acceder a este subsidio:</h3>
+                        <p>Nos pondremos en contacto contigo.</p>
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                        <input type="text" name="empresa" id="empresa" placeholder="Empresa">
+                        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+                        <input type="email" name="correo" id="correo" placeholder="Correo">
+                        <select name="sector" id="sector">
+                            <option selected disabled hidden value="sector">Selecciona un sector</option>
+                            <option value="Hotel">Hotel</option>
+                            <option value="Resto">Restaurante</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <button class="button-1" type="submit">Solicitar información</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="large-padding flex-column large-gap medium-section flex-centrado" id="informacion">
+            <div class="flex-centrado">
+                <h3 class="margin-auto">
+                    ¿Tu empresa es un Hotel o un Restaurante?<br>
+                    Nuestra plataforma te acerca a los resultados:
+                </h3>
+            </div>
+
+            <div class="listado-bonito wrap">
+                <div class="item-bonito">
+                    <div><img src="img/visibilidad-web.svg"></div>
+                    <p>Aumenta la visibilidad de tu marca y posicionate ante tu audiencia.</p>
+                </div>
+                <div class="item-bonito">
+                    <div><img src="img/reclutamiento.svg"></div>
+                    <p>Selecciona Influencers que enamoren a su audiencia y eleva la intención de compra.</p>
+                </div>
+                <div class="item-bonito">
+                    <div><img src="img/megafono.svg"></div>
+                    <p>Comunica tu valor a una comunidad digital que está ansiosa de conocer lo que tienes para contarle.</p>
+                </div>
+                <div class="item-bonito">
+                    <div><img src="img/data-analytics.svg"></div>
+                    <p>Mide cada una de las ventas que generen tus campañas y cada uno de los contenidos creados.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex grid-1fr-1fr ">
+            <div class="medium-width flex-column small-gap large-padding margin-auto">
+                    <h3>Desde BrandManic nos ocupamos de conseguirte la subvención y te damos la tecnología para promocionar tu Hotel o Restaurante.</h3>
+                    <p>Obtendrás desde 20.000€ y podrás acceder a todas las herramientas de nuestra plataforma digital.</p>
+                    <button class="button-1">Solicitar más información</button>
+                    <p>Convocatoria lanzada por el El Ministerio de Industria y Turismo como parte del paquete de ayudas de “Última Milla”.</p>
+                    <img src="img/GOB.png" style="width: 100%; max-width: 300px" alt="Ministerio de industria, comercio y turismo. Gobierno de españa">
+            </div>
+
+            <div class="cover-img" style="background-image: url(img/img1.jpg)"></div>
+        </section>
+
+        <section class="small-section flex-centrado flex-column">
+            <div class="flex-centrado ">
+                <h4 style="padding: 0 1rem">Quienes ya han trabajado con nuestra tecnología</h4>
+            </div>
+
+            <div class="marcas">
+                <img src="img/costadelsol.png" alt="Costa del sol logo">
+                <img src="img/belize.png" alt="Belize logo">
+                <img src="img/cata.png" alt="Cata logo">
+                <img src="img/benidorm.png" alt="Benidorm logo">
+                <img src="img/vinaros.png" alt="Turisme Vinaròs">
+                <img src="img/andalucia.png" alt="Andalucia logo">
+                <img src="img/canarias.png" alt="Canarias logo">
+                <img src="img/centroamerica.png" alt="Centroamerica logo">
+                <img src="img/castello.png" alt="Castello logo">
+                <img src="img/costabrava.png" alt="Costabrava logo">
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="small-section small-padding flex-centrado flex-column">
+            <div class="flex-centrado">
+                <h4>Conoce todo lo que puedes hacer con Brandmanic</h4>
+            </div>
+            <div class="listado-bonito wrap">
+                <div class="item-bonito">
+                    <img src="img/personal.svg" alt="">
+                    <p>Optimización de recursos</p>
+                </div>
+                <div class="item-bonito">
+                    <img src="img/personal-growth.svg" alt="">
+                    <p>Aumento de escalabilidad y de la rentabilidad</p>
+                </div>
+                <div class="item-bonito">
+                    <img src="img/eficiencia.svg" alt="">
+                    <p>Mide y maximiza el ROI para tus campañas</p>
+                </div>
+                <div class="item-bonito">
+                    <img src="img/hora.svg" alt="">
+                    <p>Seguimiento en tiempo real de los resultados</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex-centrado flex-column large-padding colored-background small-section">
+            <h4>Los creadores de contenidos no recomiendan productos como una solución, sino como un estilo de vida.</h4>
+            <button class="button-1">Solicitar más información</button>
+        </section>
+
+        <section class="porcentajes large-padding wrap small-section">
+            <div class="porcentaje">
+                <span>75%</span>
+                <p>de los consumidores confían en las recomendaciones que ven en las redes sociales.</p>
+            </div>
+            <div class="porcentaje">
+                <span>66%</span>
+                <p>de las marcas indican que aumentarán sus presupuestos para invertir en influencer marketing.</p>
+            </div>
+            <div class="porcentaje">
+                <span>81%</span>
+                <p>de los consumidores quieren descubrir nuevos productos y servicios en medios sociales.</p>
+            </div>
+        </section>
+
+        <section class="cover-img flex medium-section" style="background-image: url(img/banner-bg-small.gif) , url(img/banner-bg.webp);">
+            <div class="blur flex grid-1fr-1fr large-padding large-gap">
+                        <div class="contenedor-forms">
+                            <p>
+                                Solicita una reunión para acceder a este subsidio: <br>
+                                Nos pondremos en contacto contigo.
+                            </p>
+                            <form action="#" method="post">
+                                <input type="text" name="nombre" id="nombre2" placeholder="Nombre">
+                                <input type="text" name="empresa" id="empresa2" placeholder="Empresa">
+                                <input type="tel" name="telefono" id="telefono2" placeholder="Teléfono">
+                                <input type="email" name="correo" id="correo2" placeholder="Correo">
+                                <select name="sector" id="sector2">
+                                    <option selected disabled hidden value="sector">Selecciona un sector</option>
+                                    <option value="Hotel">Hotel</option>
+                                    <option value="Resto">Resto</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                                <button type="submit" class="button-1">Contactar</button>
+                            </form>
+                        </div>
+                        <div class="flex margin-auto">
+                            <div>
+                                <h3 class="texto-blanco" style="max-width: 35ch">
+                                    Es hora de que comiences a generar los resultados que tu negocio necesita. <br>
+                                    Aprovecha esta oportunidad única para explotar un canal estratégico y adelántate a tu competencia.
+                                </h3>
+                            </div>
+                        </div>
+            </div>
+
+        </section>
+        <div style="display: flex; width: -webkit-fill-available; margin: auto; margin: 1rem">
+            <img src="img/ministerio.png" alt="ministerio de industria y turismo, gobierno de españa" width="200rem" style="margin: auto;   mix-blend-mode: multiply;">
+
+        </div>
+
+    </main>
+    <footer class="small-padding flex-centrado" style="background: var(--e-global-color-primary); justify-content: space-between">
+
+        <div class="flex small-gap">
+            <img width="80" src="img/simbolo-bm-blanco.svg" alt="Logo Brandmanic">
+            <div style="color: white; line-height: 20px; font-weight: bolder; font-size: x-large">
+                Brand<br>Manic
+            </div>
+        </div>
+        <div class="texto-blanco">
+            Reservados todos los derechos © 2024
+        </div>
+    </footer>
+</body>
